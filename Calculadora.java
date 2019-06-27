@@ -15,6 +15,8 @@ public class Calculadora {
         System.out.println("3 AREA DE UN RECTANGULO");
         System.out.println("4 AREA DE UN TRIANGULO");
         System.out.println("5 CALCULO DE LA EDAD");
+        System.out.println("6 COMPROBAR SI UN NUMERO ES PAR");
+        System.out.println("7 COMPROBAR SI UN NUMERO ES IMPAR");
 
         System.out.println("SELECCIONE UNA OPCION:");
 
@@ -60,7 +62,8 @@ public class Calculadora {
         int op; //-- declaracion de la variable que alamacena la opcion del switch
         float num1 = 0, num2 = 0, r = 0; //-- declarando las variables para las operaciones
         int anioNac, edad = 0; //-- declarando variables para el calculo de la edad
-        String msg = null; //-- declaracion de variable para el mensaje del usuario para la operacio
+        int num; //-- numero para la comprobacion de numeros pares e impares
+        String msg = null; //-- declaracion de variable para el mensaje del usuario para la operacion
         String res= ""; //-- variable para guardar el resultado de la operacion y guardar en el archivo
         String rutaP = System.getProperty("user.dir"); // variable para la ruta del proyecto
         String archivoN=rutaP+"\\resultados.txt";//-- declaracion de variable para el nombre de la ruta del archivo
@@ -159,10 +162,10 @@ public class Calculadora {
                 System.out.println(msg);
 
                 //-- Ingreso de la base
-                System.out.println(" Ingrese la base del triangulo:");
+                System.out.println(" Ingrese la base del rectangulo:");
                 num1 = scanner.nextFloat();
 
-                System.out.println(" Ingrese la altura del triangulo:");
+                System.out.println(" Ingrese la altura del rectangulo:");
                 //-- Ingreso de la altura
                 num2 = scanner.nextFloat();
 
@@ -194,6 +197,58 @@ public class Calculadora {
                 //-- aqui se guarda los valores y el resultado de la operacion
                 res = "La edad es:" + String.valueOf(edad);
                 
+                //-- llamando al metodo guardarArchivo() para imprimir el resultado en el archivo
+                cal.guardarArchivo(archivoN,msg,res);
+                
+                break;
+                
+            //-- Caso para comprobar si un numero es par
+            case 6:
+                msg = " Comprobar si un numero es par";
+                System.out.println(msg);
+
+                //-- Ingreso del numero
+                System.out.println(" Ingrese el numero:");
+                num = scanner.nextInt();
+                
+                /*-- CUanddo el resto de una division de un numero entre 2 es igual a 0 
+                se dice que un numero es par*/
+                if(num%2==0){
+                    System.out.println("El numero "+num+" es PAR");
+                     //-- aqui se guarda los valores y el resultado de la operacion
+                    res = "El numero " + String.valueOf(num)+" es PAR";
+                }else{
+                    System.out.println("El numero "+num+" no es PAR");
+                     //-- aqui se guarda los valores y el resultado de la operacion
+                    res = "El numero " + String.valueOf(num)+" no es PAR";
+                }
+ 
+                //-- llamando al metodo guardarArchivo() para imprimir el resultado en el archivo
+                cal.guardarArchivo(archivoN,msg,res);
+                
+                break;
+                
+            //-- Caso para comprobar si un numero es impar
+            case 7:
+                msg = " Comprobar si un numero es impar";
+                System.out.println(msg);
+
+                //-- Ingreso del numero
+                System.out.println(" Ingrese el numero:");
+                num = scanner.nextInt();
+
+                /*-- CUanddo el resto de una division de un numero entre 2 es diferente a 0 
+                se dice que un numero es impar*/
+                if(num%2!=0){
+                    System.out.println("El numero "+num+" es IMPAR");
+                     //-- aqui se guarda los valores y el resultado de la operacion
+                    res = "El numero " + String.valueOf(num)+" es IMPAR";
+                }else{
+                    System.out.println("El numero "+num+" no es IMPAR");
+                     //-- aqui se guarda los valores y el resultado de la operacion
+                    res = "El numero " + String.valueOf(num)+" no es IMPAR";
+                }
+ 
                 //-- llamando al metodo guardarArchivo() para imprimir el resultado en el archivo
                 cal.guardarArchivo(archivoN,msg,res);
                 
