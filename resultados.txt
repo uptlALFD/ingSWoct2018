@@ -1,0 +1,2 @@
+Operacion Realizada:  Calculo de la edad
+El resultado de la operacion:La edad es:34
